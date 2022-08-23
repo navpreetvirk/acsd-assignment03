@@ -1,3 +1,5 @@
+console.clear()
+
 // MongoDB
 const { MongoClient, ObjectId } = require("mongodb")
 const uri = 'mongodb+srv://root:root@cluster0.jtbuagh.mongodb.net/?retryWrites=true&w=majority'
@@ -57,12 +59,14 @@ async function updateNote(noteData) {
 
 // Express
 const express = require('express')
+const cors = require('cors')
 
 const app = express()
 app.use(express.static('static'))
 app.use(express.json())
 express.urlencoded({extended: false})
-app.listen(process.env.PORT || 80)
+app.use(cors())
+app.listen(80)
 
 app.get('/api/notes', async (req, res) => {
     res.json(await getNotes())
