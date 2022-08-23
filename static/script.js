@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost/api'
+const API_URL = 'https://acsd-assignment03.herokuapp.com/api'
 const converter = new showdown.Converter()
 
 async function confirmDelete(noteID) {
