@@ -62,7 +62,7 @@ const app = express()
 app.use(express.static('static'))
 app.use(express.json())
 express.urlencoded({extended: false})
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 80)
 
 app.get('/api/notes', async (req, res) => {
     res.json(await getNotes())
