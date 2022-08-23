@@ -66,7 +66,7 @@ app.use(express.static('static'))
 app.use(express.json())
 express.urlencoded({extended: false})
 app.use(cors())
-app.listen(80)
+app.listen(process.env.PORT || 80)
 
 app.get('/api/notes', async (req, res) => {
     res.json(await getNotes())
