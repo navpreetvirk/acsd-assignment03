@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, width=device-width" name="viewport">
+    <title>Assignment 03</title>
+</head>
+
+<body class="bg-secondary text-light">
+    <header class="bg-dark py-2">
+        <div class="container">
+            <nav class="navbar navbar-dark">
+                <span class="navbar-brand">
+                    <strong>Assignment 03</strong>
+                </span>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="bg-dark my-4 p-4 rounded">
+            <div class="align-items-center d-flex justify-content-between px-4">
+                <h4 class="mb-0">Notes</h4>
+                <button class="btn btn-lg btn-success" data-bs-target="#create-note-modal" data-bs-toggle="modal">
+                    <i class="bi bi-plus-circle-fill me-1"></i>
+                    Create
+                </button>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="alert alert-dark mb-0 py-4 text-center" id="no-notes-alert">
+                No Notes to Display
+            </div>
+            <ul class="list-group" id="note-list"></ul>
+        </div>
+    </main>
+
+    <div class="fade modal" id="create-note-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="bg-dark border border-secondary modal-content">
+                <div class="border-secondary modal-header">
+                    <h5 class="modal-title mx-auto">Create Note</h5>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label text-secondary" for="new-note-title">Note Title</label>
+                    <input class="bg-dark border-secondary form-control form-control-lg mb-3 text-light"
+                        id="new-note-title" oninput="validate(this)" type="text">
+                    <label class="form-label text-secondary" for="note-title">Note Content</label>
+                    <textarea class="bg-dark border-secondary form-control form-control-lg mb-3 text-light"
+                        id="new-note-content" oninput="validate(this)" rows="4"></textarea>
+                    <button class="btn btn-lg btn-success w-100" disabled onclick="createNote()">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fade modal" id="view-note-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="bg-dark border border-secondary modal-content">
+                <div class="border-secondary modal-header">
+                    <h5 class="modal-title mx-auto"></h5>
+                </div>
+                <div class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fade modal" id="edit-note-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="bg-dark border border-secondary modal-content">
+                <div class="border-secondary modal-header">
+                    <h5 class="modal-title mx-auto">Edit Note</h5>
+                </div>
+                <div class="modal-body">
+                    <label class="form-label text-secondary" for="note-title">Note Title</label>
+                    <input class="bg-dark border-secondary form-control form-control-lg mb-3 text-light"
+                        id="edit-note-title" oninput="validate(this)" type="text">
+                    <label class="form-label text-secondary" for="note-title">Note Content</label>
+                    <textarea class="bg-dark border-secondary form-control form-control-lg mb-3 text-light"
+                        id="edit-note-content" oninput="validate(this)" rows="4"></textarea>
+                    <button class="btn btn-lg btn-success w-100" id="update-note-button">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fade modal" id="delete-note-modal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="bg-dark border border-secondary modal-content">
+                <div class="border-secondary modal-header">
+                    <h5 class="modal-title mx-auto">Delete Note</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex justify-content-evenly">
+                        <button class="btn btn-lg btn-danger w-25" id="delete-button">Yes</button>
+                        <button class="btn btn-lg btn-secondary w-25" data-bs-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/showdown/dist/showdown.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
